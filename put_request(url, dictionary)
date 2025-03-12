@@ -1,0 +1,30 @@
+import requests
+
+def put_request(url, dictionary):
+    """Sends a PUT request to the given URL with the provided dictionary."""
+    response = requests.put(url, json=dictionary)
+    print("Status Code:", response.status_code)
+    print("Headers:", response.headers)
+    print("Body:", response.json())
+
+def delete_request(url):
+    """Sends a DELETE request to the given URL."""
+    response = requests.delete(url)
+    print("Status Code:", response.status_code)
+    print("Headers:", response.headers)
+
+# Test Data
+test_data = {
+    "userId": 1,
+    "id": 1,
+    "title": "Updated Data",
+    "body": "This is my test PUT data"
+}
+
+# URLs for testing
+put_url = "https://jsonplaceholder.typicode.com/posts/1"
+delete_url = "https://jsonplaceholder.typicode.com/posts/1"
+
+# Calling the functions
+put_request(put_url, test_data)
+delete_request(delete_url)
